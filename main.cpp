@@ -5,14 +5,16 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QWidget window;
-    QHBoxLayout layout(&window);
-    QTextBrowser browser;
-    layout.addWidget(&browser);
+    QWidget *window = new QWidget;
+    QHBoxLayout *layout = new QHBoxLayout;
+    QTextBrowser *browser = new QTextBrowser;
+    layout->addWidget(browser);
 
     QString text = "abcde: edcba";
-    browser.setPlainText(text);
+    browser->setPlainText(text);
 
-    window.show();
+    window->setLayout(layout);
+    window->show();
+
     return a.exec();
 }
